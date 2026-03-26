@@ -38,12 +38,22 @@ body {
 .secret {
     color: #ffff00;
     font-weight: bold;
+    cursor: pointer;
+}
+#imageReveal{
+    display:block;
+    margin:20px auto;
+    max-width:300px;
+    opacity:0;
+    transition: opacity 1.5s;
+    cursor:pointer;
 }
 </style>
 </head>
 <body>
 
 <pre id="terminal"></pre><span class="cursor"></span>
+<img id="imageReveal" src="https://giffiles.alphacoders.com/171/171468.gif">
 
 <script>
 // ------------------ memories array ------------------
@@ -136,6 +146,7 @@ const hiddenMemories = [
 "> glitch_003:\n> random symbols: #$%&*@!",
 "> glitch_004:\n> a shadow passes by... ████",
 "> glitch_005:\n> memory repeated... something unknown"
+"> glitch_006:\n> something is happening."
 ];
 
 // ------------------ secret extra memories ------------------
@@ -144,7 +155,8 @@ const secretMemories = [
 "> secret_002:\n> a forgotten happy day resurfaces",
 "> secret_003:\n> old online chat logs appear",
 "> secret_004:\n> a secret cosplay idea you never tried",
-"> secret_005:\n> ████ finally revealed"
+"> secret_005:\n> ████ finally revealed",
+"> secret_006:\n> click this yellow memory to see something..."
 ];
 
 // ------------------ riddle check ------------------
@@ -172,8 +184,33 @@ function startTyping() {
         } else {
             clearInterval(typingInterval);
             cursor.style.display = "none";
+            showYellowSecret();
         }
     }, 400);
+}
+
+// ------------------ show yellow secret memory ------------------
+function showYellowSecret() {
+    const secretDiv = document.createElement("div");
+    secretDiv.classList.add("secret");
+    secretDiv.textContent = "> click me for a secret memory";
+    terminal.appendChild(secretDiv);
+    terminal.scrollTop = terminal.scrollHeight;
+
+    secretDiv.addEventListener("click", ()=>{
+        const randIndex = Math.floor(Math.random() * secretMemories.length);
+        const secret = document.createElement("div");
+        secret.classList.add("secret");
+        secret.textContent = secretMemories[randIndex];
+        terminal.appendChild(secret);
+        terminal.scrollTop = terminal.scrollHeight;
+
+        // reveal image if it's secret_006
+        if(secret.textContent.includes("image")){
+            const img = document.getElementById("imageReveal");
+            img.style.opacity = "1";
+        }
+    });
 }
 
 // ------------------ hidden glitch effect ------------------
@@ -185,7 +222,6 @@ document.body.addEventListener("click", () => {
     terminal.appendChild(glitch);
     terminal.scrollTop = terminal.scrollHeight;
 
-    // make glitch clickable to reveal secret memories
     glitch.addEventListener("click", () => {
         const randSecretIndex = Math.floor(Math.random() * secretMemories.length);
         const secret = document.createElement("div");
@@ -193,6 +229,11 @@ document.body.addEventListener("click", () => {
         secret.textContent = secretMemories[randSecretIndex];
         terminal.appendChild(secret);
         terminal.scrollTop = terminal.scrollHeight;
+
+        if(secret.textContent.includes("image")){
+            const img = document.getElementById("imageReveal");
+            img.style.opacity = "1";
+        }
     });
 });
 
