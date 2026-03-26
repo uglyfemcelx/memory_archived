@@ -10,10 +10,13 @@ body {
     font-family: "Courier New", monospace;
     padding: 40px;
     overflow-x: hidden;
+    cursor: crosshair;
 }
 #terminal {
     white-space: pre-wrap;
     line-height: 1.6;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 .cursor {
     display: inline-block;
@@ -27,10 +30,14 @@ body {
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-.memory {
-    opacity: 0;
-    transition: opacity 1s;
-    margin-bottom: 10px;
+.glitch {
+    color: #ff00ff;
+    font-weight: bold;
+    cursor: pointer;
+}
+.secret {
+    color: #ffff00;
+    font-weight: bold;
 }
 </style>
 </head>
@@ -122,6 +129,24 @@ const memories = [
 "> memory_045:\n> walking in silence, remembering everything"
 ];
 
+// ------------------ hidden clickable glitches ------------------
+const hiddenMemories = [
+"> glitch_001:\n> ████ appears briefly and disappears",
+"> glitch_002:\n> ERROR DETECTED... memory corrupted",
+"> glitch_003:\n> random symbols: #$%&*@!",
+"> glitch_004:\n> a shadow passes by... ████",
+"> glitch_005:\n> memory repeated... something unknown"
+];
+
+// ------------------ secret extra memories ------------------
+const secretMemories = [
+"> secret_001:\n> you discovered a hidden memory of your first crush",
+"> secret_002:\n> a forgotten happy day resurfaces",
+"> secret_003:\n> old online chat logs appear",
+"> secret_004:\n> a secret cosplay idea you never tried",
+"> secret_005:\n> ████ finally revealed"
+];
+
 // ------------------ riddle check ------------------
 function askRiddle() {
     const answer = prompt("riddle: what has keys but can't open locks?");
@@ -148,10 +173,29 @@ function startTyping() {
             clearInterval(typingInterval);
             cursor.style.display = "none";
         }
-    }, 500);
+    }, 400);
 }
 
-// ------------------ start ------------------
+// ------------------ hidden glitch effect ------------------
+document.body.addEventListener("click", () => {
+    const randIndex = Math.floor(Math.random() * hiddenMemories.length);
+    const glitch = document.createElement("div");
+    glitch.classList.add("glitch");
+    glitch.textContent = hiddenMemories[randIndex];
+    terminal.appendChild(glitch);
+    terminal.scrollTop = terminal.scrollHeight;
+
+    // make glitch clickable to reveal secret memories
+    glitch.addEventListener("click", () => {
+        const randSecretIndex = Math.floor(Math.random() * secretMemories.length);
+        const secret = document.createElement("div");
+        secret.classList.add("secret");
+        secret.textContent = secretMemories[randSecretIndex];
+        terminal.appendChild(secret);
+        terminal.scrollTop = terminal.scrollHeight;
+    });
+});
+
 askRiddle();
 </script>
 
