@@ -145,7 +145,7 @@ const hiddenMemories = [
 "> glitch_002:\n> ERROR DETECTED... memory corrupted",
 "> glitch_003:\n> random symbols: #$%&*@!",
 "> glitch_004:\n> a shadow passes by... ████",
-"> glitch_005:\n> memory repeated... something unknown"
+"> glitch_005:\n> memory repeated... something unknown",
 "> glitch_006:\n> something is happening."
 ];
 
@@ -161,11 +161,11 @@ const secretMemories = [
 
 // ------------------ riddle check ------------------
 function askRiddle() {
-    const answer = prompt("riddle: what has keys but can't open locks?");
+    const answer = prompt("to access the memory_archive, answer this riddle: what has keys but can't open locks?");
     if(answer && answer.toLowerCase().includes("piano")) {
         startTyping();
     } else {
-        alert("incorrect... try again later.");
+        alert("WRONG dumb ahh... try again later.");
     }
 }
 
