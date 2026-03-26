@@ -151,7 +151,7 @@ const hiddenMemories = [
 
 // ------------------ secret extra memories ------------------
 const secretMemories = [
-"> secret_001:\n> you discovered a hidden memory of your first crush",
+"> secret_001:\n> you discovered a hidden memory",
 "> secret_002:\n> a forgotten happy day resurfaces",
 "> secret_003:\n> old online chat logs appear",
 "> secret_004:\n> a secret cosplay idea you never tried",
@@ -206,7 +206,7 @@ function showYellowSecret() {
         terminal.scrollTop = terminal.scrollHeight;
 
         // reveal image if it's secret_006
-        if(secret.textContent.includes("image")){
+        if(secretMemories[randIndex].includes("secret_006")){
             const img = document.getElementById("imageReveal");
             img.style.opacity = "1";
         }
@@ -230,7 +230,7 @@ document.body.addEventListener("click", () => {
         terminal.appendChild(secret);
         terminal.scrollTop = terminal.scrollHeight;
 
-        if(secret.textContent.includes("image")){
+        if(secretMemories[randSecretIndex].includes("secret_006")){
             const img = document.getElementById("imageReveal");
             img.style.opacity = "1";
         }
