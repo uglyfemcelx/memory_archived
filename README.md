@@ -236,7 +236,32 @@ document.body.addEventListener("click", () => {
         }
     });
 });
+// ------------------ IMAGE CLICK 3-TIMES SWITCH ------------------
+const gifs = [
+    "https://giffiles.alphacoders.com/171/171468.gif", // first gif
+    "[https://media.giphy.com/media/3o6ZsXzUBr1MGfLkl6/giphy.gif](https://i.pinimg.com/originals/f1/25/20/f12520f36a9b98f6e897f0705fd0d373.gif)" // second gif
+];
 
+let imageClickCount = 0;
+let currentGifIndex = 0;
+const img = document.getElementById("imageReveal");
+
+img.addEventListener("click", ()=>{
+    imageClickCount++;
+
+    if(imageClickCount >= 3){
+        currentGifIndex = (currentGifIndex + 1) % gifs.length; 
+        img.src = gifs[currentGifIndex];
+        imageClickCount = 0;
+
+        const warning = document.createElement("div");
+        warning.classList.add("secret");
+        warning.textContent = "> you shouldn't have done that...";
+        terminal.appendChild(warning);
+        terminal.scrollTop = terminal.scrollHeight;
+    }
+});
+    
 askRiddle();
 </script>
 
