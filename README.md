@@ -48,12 +48,52 @@ body {
     transition: opacity 1.5s;
     cursor:pointer;
 }
+#secretLink {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+    margin-top: 20px;
+    animation: glitchFlicker 1s infinite;
+}
+@keyframes glitchFlicker {
+    0% { opacity: 1; }
+    20% { opacity: 0.2; }
+    40% { opacity: 1; }
+    60% { opacity: 0.3; }
+    80% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+#corruptScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: red;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+}
 </style>
 </head>
 <body>
 
 <pre id="terminal"></pre><span class="cursor"></span>
 <img id="imageReveal" src="https://giffiles.alphacoders.com/171/171468.gif">
+
+<div id="secretLinkContainer"></div>
+
+<div id="corruptScreen">
+    <div>
+        <p>LOADING...</p>
+        <p>███ CORRUPTING MEMORY ███</p>
+        <p id="countdown"></p>
+    </div>
+</div>
 
 <script>
 // ------------------ memories array ------------------
@@ -156,7 +196,12 @@ const secretMemories = [
 "> secret_003:\n> old online chat logs appear",
 "> secret_004:\n> a secret cosplay idea you never tried",
 "> secret_005:\n> ████ finally revealed",
-"> secret_006:\n> click this yellow memory to see something..."
+"> secret_006:\n> click this yellow memory to see something...",
+"> secret_007:\n> i messed up...",
+"> secret_008:\n> why is this happening to me?...",
+"> secret_009:\n> its all my fault, isnt it...",
+"> secret_010:\n> we are born to die",
+"> secret_666:\n> i̸̫̙̹̽̂̅́́̈́̆ͅm̵̙͙͂̍͒̄ ̷̘̹̻͕̩̲͌b̷͎̗̯͔͕͊̉̒̈́͊̚̕͝e̶̜̯͉̾̈́͒̕h̵̫̺̼̄̽̅̅̇̈́̚͘͝͝i̶̡̇͛͐͂̆̑ő̴̖̝̤̳̣̪̭̻̍ͅn̷̢̟̭̣̪̯̖͆̅͂j̴̧̲͕̮̩̦͍̤̯̉̎́͛̔̓͘d̷̪̘̰̱͚̫̜̝̯̓́̐͒̂̾͝d̶͉̻̝̗̮̮̺̐ ̵̱̩̌̉̓̉̔̄̆͝y̶̢̧̲̼͍͎̜̤̖̳̌͒̒́̅o̷̡̻̖̜͈̝̯̽̍̎͘ù̵͈͔̟̯u̵̢̨̹̰̬̞͍̘͚̝͒̾̍̋̈́̈̿͠u̶̼͋̈͊͗́̇ ̷̻̣͍̩͕͔̲̒̇̅͆̊͝h̴̘̖͈̠̯̏̾̌̅͛̓́̑͜͝ḁ̶̢͓̟̟̼́̏̒ḩ̵͍̯̮̝̲̽̑̍̅̅̏͛̚͜͠͝á̶̰̯͔͓̺̮̹̔͑̈̌á̴̛͍͔̺̣̠̯̘͛͋̀̓̈́h̶̖̱̹̺͈̲̗́̍͐͠͠ͅi̸̫̙̹̽̂̅́́̈́̆ͅm̵̙͙͂̍͒̄ ̷̘̹̻͕̩̲͌b̷͎̗̯͔͕͊̉̒̈́͊̚̕͝e̶̜̯͉̾̈́͒̕h̵̫̺̼̄̽̅̅̇̈́̚͘͝͝i̶̡̇͛͐͂̆̑ő̴̖̝̤̳̣̪̭̻̍ͅn̷̢̟̭̣̪̯̖͆̅͂j̴̧̲͕̮̩̦͍̤̯̉̎́͛̔̓͘d̷̪̘̰̱͚̫̜̝̯̓́̐͒̂̾͝d̶͉̻̝̗̮̮̺̐ ̵̱̩̌̉̓̉̔̄̆͝y̶̢̧̲̼͍͎̜̤̖̳̌͒̒́̅o̷̡̻̖̜͈̝̯̽̍̎͘ù̵͈͔̟̯u̵̢̨̹̰̬̞͍̘͚̝͒̾̍̋̈́̈̿͠u̶̼͋̈͊͗́̇ ̷̻̣͍̩͕͔̲̒̇̅͆̊͝h̴̘̖͈̠̯̏̾̌̅͛̓́̑͜͝ḁ̶̢͓̟̟̼́̏̒ḩ̵͍̯̮̝̲̽̑̍̅̅̏͛̚͜͠͝á̶̰̯͔͓̺̮̹̔͑̈̌á̴̛͍͔̺̣̠̯̘͛͋̀̓̈́h̶̖̱̹̺͈̲̗́̍͐͠͠ͅi̸̫̙̹̽̂̅́́̈́̆ͅm̵̙͙͂̍͒̄ ̷̘̹̻͕̩̲͌b̷͎̗̯͔͕͊̉̒̈́͊̚̕͝e̶̜̯͉̾̈́͒̕h̵̫̺̼̄̽̅̅̇̈́̚͘͝͝i̶̡̇͛͐͂̆̑ő̴̖̝̤̳̣̪̭̻̍ͅn̷̢̟̭̣̪̯̖͆̅͂j̴̧̲͕̮̩̦͍̤̯̉̎́͛̔̓͘d̷̪̘̰̱͚̫̜̝̯̓́̐͒̂̾͝d̶͉̻̝̗̮̮̺̐ ̵̱̩̌̉̓̉̔̄̆͝y̶̢̧̲̼͍͎̜̤̖̳̌͒̒́̅o̷̡̻̖̜͈̝̯̽̍̎͘ù̵͈͔̟̯u̵̢̨̹̰̬̞͍̘͚̝͒̾̍̋̈́̈̿͠u̶̼͋̈͊͗́̇ ̷̻̣͍̩͕͔̲̒̇̅͆̊͝h̴̘̖͈̠̯̏̾̌̅͛̓́̑͜͝ḁ̶̢͓̟̟̼́̏̒ḩ̵͍̯̮̝̲̽̑̍̅̅̏͛̚͜͠͝á̶̰̯͔͓̺̮̹̔͑̈̌á̴̛͍͔̺̣̠̯̘͛͋̀̓̈́h̶̖̱̹̺͈̲̗́̍͐͠͠ͅ..."
 ];
 
 // ------------------ riddle check ------------------
@@ -239,7 +284,7 @@ document.body.addEventListener("click", () => {
 // ------------------ IMAGE CLICK 3-TIMES SWITCH ------------------
 const gifs = [
     "https://giffiles.alphacoders.com/171/171468.gif", // first gif
-    "[https://media.giphy.com/media/3o6ZsXzUBr1MGfLkl6/giphy.gif](https://i.pinimg.com/originals/f1/25/20/f12520f36a9b98f6e897f0705fd0d373.gif)" // second gif
+    "https://i.pinimg.com/originals/f1/25/20/f12520f36a9b98f6e897f0705fd0d373.gif" // second gif
 ];
 
 let imageClickCount = 0;
@@ -260,6 +305,53 @@ img.addEventListener("click", ()=>{
         terminal.appendChild(warning);
         terminal.scrollTop = terminal.scrollHeight;
     }
+let imageTotalClicks = 0;
+const secretLinkContainer = document.getElementById("secretLinkContainer");
+
+// count total image clicks
+img.addEventListener("click", () => {
+    imageTotalClicks++;
+
+    if (imageTotalClicks >= 5) {
+        showSecretLink();
+    }
+});
+
+// show "dont click..." link
+function showSecretLink() {
+    if (document.getElementById("secretLink")) return;
+
+    const link = document.createElement("div");
+    link.id = "secretLink";
+    link.textContent = "> dont click...";
+    link.style.display = "block";
+
+    secretLinkContainer.appendChild(link);
+
+    link.addEventListener("click", () => {
+        corruptTransition();
+    });
+}
+// corrupted loading + redirect
+function corruptTransition() {
+    const screen = document.getElementById("corruptScreen");
+    const countdown = document.getElementById("countdown");
+
+    screen.style.display = "flex";
+
+    let time = 3;
+    countdown.textContent = time;
+
+    const interval = setInterval(() => {
+        time--;
+        countdown.textContent = time;
+
+        if (time <= 0) {
+            clearInterval(interval);
+            window.location.href = "node_03.com";
+        }
+    }, 1000);
+}
 });
     
 askRiddle();
