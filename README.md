@@ -340,7 +340,7 @@ function showSecretLink() {
 // glitch system
 function glitchLine(line){
     if(Math.random() < 0.08){
-        return "> ███ ERROR ███ MEMORY CORRUPTED ███";
+        return "> ███ RED?!CTED ███ MEMORY MISSING ███";
     }
     return line;
 }
@@ -366,6 +366,37 @@ function processLine(line){
     return line;
 }
 
+// typinggg
+
+function type(){
+    if(i < story.length){
+
+        let line = story[i];
+
+        line = glitchLine(line);
+        line = processLine(line);
+        line = corruptText(line);
+
+        text.innerHTML += line + "\n";
+        i++;
+
+        // auto scroll
+        window.scrollTo(0, document.body.scrollHeight);
+
+        // random intrusive message
+        if(Math.random() < 0.05){
+            const intrude = document.createElement("div");
+            intrude.classList.add("glitch");
+            intrude.textContent = "> im watching you.";
+            text.appendChild(intrude);
+        }
+
+        setTimeout(type, 120);
+
+    } else {
+        spawnSecret();
+    }
+}
 
 // corrupted loading n redirect
 function corruptTransition() {
