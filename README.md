@@ -242,7 +242,7 @@ function startTyping() {
 function showYellowSecret() {
     const secretDiv = document.createElement("div");
     secretDiv.classList.add("secret");
-    secretDiv.textContent = "> click me for a secret memory";
+    secretDiv.textContent = "> shes here...";
     terminal.appendChild(secretDiv);
     terminal.scrollTop = terminal.scrollHeight;
 
