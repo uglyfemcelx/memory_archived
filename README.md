@@ -96,7 +96,7 @@ body {
 </div>
 
 <script>
-// ------------------ memories array ------------------
+// memories array
 const memories = [
 "> memory_001:\n> went to a movie theatre to watch my favorite movie",
 "> memory_002:\n> i was happy",
@@ -179,7 +179,7 @@ const memories = [
 "> memory_045:\n> walking in silence, remembering everything"
 ];
 
-// ------------------ hidden clickable glitches ------------------
+// hidden clickable glitches 
 const hiddenMemories = [
 "> glitch_001:\n> ████ appears briefly and disappears",
 "> glitch_002:\n> ERROR DETECTED... memory corrupted",
@@ -189,7 +189,7 @@ const hiddenMemories = [
 "> glitch_006:\n> something is happening."
 ];
 
-// ------------------ secret extra memories ------------------
+// secret extra memories
 const secretMemories = [
 "> secret_001:\n> you discovered a hidden memory",
 "> secret_002:\n> a forgotten happy day resurfaces",
@@ -204,7 +204,7 @@ const secretMemories = [
 "> secret_666:\n> i̸̫̙̹̽̂̅́́̈́̆ͅm̵̙͙͂̍͒̄ ̷̘̹̻͕̩̲͌b̷͎̗̯͔͕͊̉̒̈́͊̚̕͝e̶̜̯͉̾̈́͒̕h̵̫̺̼̄̽̅̅̇̈́̚͘͝͝i̶̡̇͛͐͂̆̑ő̴̖̝̤̳̣̪̭̻̍ͅn̷̢̟̭̣̪̯̖͆̅͂j̴̧̲͕̮̩̦͍̤̯̉̎́͛̔̓͘d̷̪̘̰̱͚̫̜̝̯̓́̐͒̂̾͝d̶͉̻̝̗̮̮̺̐ ̵̱̩̌̉̓̉̔̄̆͝y̶̢̧̲̼͍͎̜̤̖̳̌͒̒́̅o̷̡̻̖̜͈̝̯̽̍̎͘ù̵͈͔̟̯u̵̢̨̹̰̬̞͍̘͚̝͒̾̍̋̈́̈̿͠u̶̼͋̈͊͗́̇ ̷̻̣͍̩͕͔̲̒̇̅͆̊͝h̴̘̖͈̠̯̏̾̌̅͛̓́̑͜͝ḁ̶̢͓̟̟̼́̏̒ḩ̵͍̯̮̝̲̽̑̍̅̅̏͛̚͜͠͝á̶̰̯͔͓̺̮̹̔͑̈̌á̴̛͍͔̺̣̠̯̘͛͋̀̓̈́h̶̖̱̹̺͈̲̗́̍͐͠͠ͅi̸̫̙̹̽̂̅́́̈́̆ͅm̵̙͙͂̍͒̄ ̷̘̹̻͕̩̲͌b̷͎̗̯͔͕͊̉̒̈́͊̚̕͝e̶̜̯͉̾̈́͒̕h̵̫̺̼̄̽̅̅̇̈́̚͘͝͝i̶̡̇͛͐͂̆̑ő̴̖̝̤̳̣̪̭̻̍ͅn̷̢̟̭̣̪̯̖͆̅͂j̴̧̲͕̮̩̦͍̤̯̉̎́͛̔̓͘d̷̪̘̰̱͚̫̜̝̯̓́̐͒̂̾͝d̶͉̻̝̗̮̮̺̐ ̵̱̩̌̉̓̉̔̄̆͝y̶̢̧̲̼͍͎̜̤̖̳̌͒̒́̅o̷̡̻̖̜͈̝̯̽̍̎͘ù̵͈͔̟̯u̵̢̨̹̰̬̞͍̘͚̝͒̾̍̋̈́̈̿͠u̶̼͋̈͊͗́̇ ̷̻̣͍̩͕͔̲̒̇̅͆̊͝h̴̘̖͈̠̯̏̾̌̅͛̓́̑͜͝ḁ̶̢͓̟̟̼́̏̒ḩ̵͍̯̮̝̲̽̑̍̅̅̏͛̚͜͠͝á̶̰̯͔͓̺̮̹̔͑̈̌á̴̛͍͔̺̣̠̯̘͛͋̀̓̈́h̶̖̱̹̺͈̲̗́̍͐͠͠ͅi̸̫̙̹̽̂̅́́̈́̆ͅm̵̙͙͂̍͒̄ ̷̘̹̻͕̩̲͌b̷͎̗̯͔͕͊̉̒̈́͊̚̕͝e̶̜̯͉̾̈́͒̕h̵̫̺̼̄̽̅̅̇̈́̚͘͝͝i̶̡̇͛͐͂̆̑ő̴̖̝̤̳̣̪̭̻̍ͅn̷̢̟̭̣̪̯̖͆̅͂j̴̧̲͕̮̩̦͍̤̯̉̎́͛̔̓͘d̷̪̘̰̱͚̫̜̝̯̓́̐͒̂̾͝d̶͉̻̝̗̮̮̺̐ ̵̱̩̌̉̓̉̔̄̆͝y̶̢̧̲̼͍͎̜̤̖̳̌͒̒́̅o̷̡̻̖̜͈̝̯̽̍̎͘ù̵͈͔̟̯u̵̢̨̹̰̬̞͍̘͚̝͒̾̍̋̈́̈̿͠u̶̼͋̈͊͗́̇ ̷̻̣͍̩͕͔̲̒̇̅͆̊͝h̴̘̖͈̠̯̏̾̌̅͛̓́̑͜͝ḁ̶̢͓̟̟̼́̏̒ḩ̵͍̯̮̝̲̽̑̍̅̅̏͛̚͜͠͝á̶̰̯͔͓̺̮̹̔͑̈̌á̴̛͍͔̺̣̠̯̘͛͋̀̓̈́h̶̖̱̹̺͈̲̗́̍͐͠͠ͅ..."
 ];
 
-// ------------------ riddle check ------------------
+// riddle check
 function askRiddle() {
     const answer = prompt("to access the memory_archive, answer this riddle: what has keys but can't open locks?");
     if(answer && answer.toLowerCase().includes("piano")) {
@@ -214,7 +214,7 @@ function askRiddle() {
     }
 }
 
-// ------------------ typing effect ------------------
+// typing effect
 let i = 0;
 const terminal = document.getElementById("terminal");
 
@@ -234,7 +234,7 @@ function startTyping() {
     }, 400);
 }
 
-// ------------------ show yellow secret memory ------------------
+// show yellow secret memory
 function showYellowSecret() {
     const secretDiv = document.createElement("div");
     secretDiv.classList.add("secret");
@@ -250,7 +250,7 @@ function showYellowSecret() {
         terminal.appendChild(secret);
         terminal.scrollTop = terminal.scrollHeight;
 
-        // reveal image if it's secret_006
+        // reveal image if its secret_006
         if(secretMemories[randIndex].includes("secret_006")){
             const img = document.getElementById("imageReveal");
             img.style.opacity = "1";
@@ -258,7 +258,7 @@ function showYellowSecret() {
     });
 }
 
-// ------------------ hidden glitch effect ------------------
+// hidden glitch effect
 document.body.addEventListener("click", () => {
     const randIndex = Math.floor(Math.random() * hiddenMemories.length);
     const glitch = document.createElement("div");
@@ -281,7 +281,7 @@ document.body.addEventListener("click", () => {
         }
     });
 });
-// ------------------ IMAGE CLICK 3-TIMES SWITCH ------------------
+// IMAGE CLICK 3-TIMES SWITCH 
 const gifs = [
     "https://giffiles.alphacoders.com/171/171468.gif", // first gif
     "https://i.pinimg.com/originals/f1/25/20/f12520f36a9b98f6e897f0705fd0d373.gif" // second gif
@@ -332,7 +332,7 @@ function showSecretLink() {
         corruptTransition();
     });
 }
-// corrupted loading + redirect
+// corrupted loading n redirect
 function corruptTransition() {
     const screen = document.getElementById("corruptScreen");
     const countdown = document.getElementById("countdown");
