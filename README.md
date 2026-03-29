@@ -332,6 +332,37 @@ function showSecretLink() {
         corruptTransition();
     });
 }
+
+// glitch system
+function glitchLine(line){
+    if(Math.random() < 0.08){
+        return "> ███ ERROR ███ MEMORY CORRUPTED ███";
+    }
+    return line;
+}
+
+function corruptText(str){
+    const chars = "!@#$%^yaoi&*()_+=-{}[]<>?/|";
+    return str.split("").map(c=>{
+        if(Math.random() < 0.05){
+            return chars[Math.floor(Math.random()*chars.length)];
+        }
+        return c;
+    }).join("");
+}
+
+function processLine(line){
+    if(line.toLowerCase().includes("her")){
+        return line.replace(/her/gi, ()=>{
+            return Math.random() < 0.5
+                ? "<span class='glitch'>h̷e̷r̷</span>"
+                : "her";
+        });
+    }
+    return line;
+}
+
+
 // corrupted loading n redirect
 function corruptTransition() {
     const screen = document.getElementById("corruptScreen");
