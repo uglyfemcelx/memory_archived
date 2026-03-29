@@ -200,7 +200,7 @@ const secretMemories = [
 "> secret_003:\n> old online chat logs appear",
 "> secret_004:\n> a secret cosplay idea you never tried",
 "> secret_005:\n> ████ finally revealed",
-"> secret_006:\n> click this yellow memory to see something...",
+"> secret_006:\n> shes here...",
 "> secret_007:\n> i messed up...",
 "> secret_008:\n> why is this happening to me?...",
 "> secret_009:\n> its all my fault, isnt it...",
@@ -214,7 +214,7 @@ function askRiddle() {
     if(answer && answer.toLowerCase().includes("uglyfoid")) {
         startTyping();
     } else {
-        alert("skill issue... try again later.");
+        alert("skill issue... try again never.");
     }
 }
 
