@@ -348,7 +348,7 @@ function corruptTransition() {
 
         if (time <= 0) {
             clearInterval(interval);
-            window.location.href = "node_03.com";
+            window.location.href = "https://uglyfemcelx.github.io/node_03/";
         }
     }, 1000);
 }
