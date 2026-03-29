@@ -35,6 +35,10 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
+.glitch{
+    color:red;
+    animation:flicker 0.2s infinite;
+}
 .secret {
     color: #ffff00;
     font-weight: bold;
