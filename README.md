@@ -210,11 +210,11 @@ const secretMemories = [
 
 // riddle check
 function askRiddle() {
-    const answer = prompt("to access the memory_archive, answer this riddle: what has keys but can't open locks?");
-    if(answer && answer.toLowerCase().includes("piano")) {
+    const answer = prompt("to access the memory_archive, enter the password");
+    if(answer && answer.toLowerCase().includes("uglyfoid")) {
         startTyping();
     } else {
-        alert("WRONG dumb ahh... try again later.");
+        alert("skill issue... try again later.");
     }
 }
 
@@ -285,7 +285,7 @@ document.body.addEventListener("click", () => {
         }
     });
 });
-// IMAGE CLICK 3-TIMES SWITCH 
+// IMAGE CLICK 3TIMES SWITCH 
 const gifs = [
     "https://giffiles.alphacoders.com/171/171468.gif", // first gif
     "https://i.pinimg.com/originals/f1/25/20/f12520f36a9b98f6e897f0705fd0d373.gif" // second gif
